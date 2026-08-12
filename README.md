@@ -104,7 +104,7 @@
 
 <div align="center">
   <h2>💎 Get the Full / Premium Version</h2>
-  <p>The file available in this repository is a <b>Trial Version</b>, strictly limited to <b>1 Minute</b> of usage time for initial demonstration. Once the trial expires, the device is permanently locked.</p>
+  <p>The file available in this repository is a <b>Trial Version</b>, strictly limited to <b>10 Minute</b> of usage time for initial demonstration. Once the trial expires, the device is permanently locked.</p>
   <p><b>Benefits of purchasing the Premium Version:</b></p>
   <p>
     ✅ No Time Limits (Premium Unlimited/Permanent).<br>
