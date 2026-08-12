@@ -87,7 +87,7 @@
   <li>Select Board: <i>LOLIN(WEMOS) D1 Mini</i>.</li>
   <li>Erase the board flash first (Erase All Flash).</li>
   <li>Load the <b>.bin</b> file.</li>
-  <li>Set the offset to <b>0x00000</b>.</li>
+  <li>Set the offset to <b>0x0</b>.</li>
   <li>Click Flash and wait for the process to finish.</li>
   <li><b>ATHERNET SSID will appear shortly.</b></li>
 </ul>
