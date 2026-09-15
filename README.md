@@ -124,7 +124,7 @@
 
 <p><b>Module Wiring Diagram (ESP8266 D1 Mini):</b></p>
 <p align="center">
-  <img src="GAMBAR_SKEMATIK_ESP8266_ANDA_DISINI.jpg" width="800" alt="Wiring Diagram" />
+  <img src="https://raw.githubusercontent.com/AtherNet29/Esp8266-Deauther-2.4-Ghz-Jammer-Bluetooth/80170820c605168ec53c6794e7d714323c367130/SKEMA%20ESP8266.png" width="800" alt="Wiring Diagram" />
 </p>
 
 <hr>
