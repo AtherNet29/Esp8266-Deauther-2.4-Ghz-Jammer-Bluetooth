@@ -126,7 +126,7 @@
 <h2>📸 Preview & Documentation</h2>
 <p><b>Web Dashboard Interface:</b></p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/AtherNet29/Esp8266-Deauther-2.4-Ghz-Jammer-Bluetooth/bfbd55d4c29e50327f5f40f2d37576ec45e14e55/Dashboard.jpg" width="250" alt="Dashboard Preview" />
+<img src="https://raw.githubusercontent.com/AtherNet29/Esp8266-Deauther-2.4-Ghz-Jammer-Bluetooth/35c0182138ea2ca7fc5d6a696dcfdf414f261d34/DASHBOARD%20(2).jpg" width="800" alt="Dashboard Preview" />
 </p>
 
 <p><b>Module Wiring Diagram (ESP8266 D1 Mini):</b></p>
