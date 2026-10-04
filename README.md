@@ -6,10 +6,10 @@
   <img src="https://img.shields.io/badge/🛡️_Educational_Purpose_Only-IMPORTANT-red" />
 </div>
 
-<h1 align="center">⚡ AETHERNET PRO (ESP8266)</h1>
+<h1 align="center">⚡ AETHERNET TRIAL (ESP8266)</h1>
 <p align="center">
-  <b>Advanced WiFi & Bluetooth Security Audit Tool</b><br>
-  <i>Compact single-module design to stress-test the resilience of 2.4GHz WiFi and Bluetooth networks.</i>
+  <b>Advanced WiFi Security Audit Tool & Game Launcher</b><br>
+  <i>Compact single-module design featuring dual-firmware switching, physical button navigation, and an integrated web dashboard.</i>
 </p>
 
 <hr>
@@ -24,20 +24,22 @@
   <li><b>Beacon Spam:</b> Floods the area with hundreds of fake SSIDs (Default or Customizable up to 50 different names).</li>
   <li><b>Password Auto-Verify:</b> When a victim enters a password on the phishing page, it automatically verifies its correctness against the real router in real-time.</li>
   <li><b>Deauth All:</b> Broadcasts deauthentication frames to all nearby networks simultaneously.</li>
-  <li><b>Router Guard:</b> Protects a specific AP by continuously deauthing unwanted connected clients.</li>
-  <li><b>WiFi Extender:</b> Acts as a universal repeater for any target network with NAPT support.</li>
+  <li><b>Session Hijack & Router Guard:</b> Sniffs connected stations, allows selective deauthentication of specific clients, and guards the target AP.</li>
+  <li><b>WiFi Extender (NAPT):</b> Acts as a universal repeater for any target network.</li>
 </ul>
 
-<h3>📻 Bluetooth Attacks</h3>
+<h3>🕹️ Dual-Firmware & Main Game</h3>
 <ul>
-  <li><b>BT Jammer (JAMBLUE):</b> Uses 1x NRF24L01 to perform Continuous Wave Sweeping on BT frequencies, testing the vulnerability of Bluetooth IoT devices.</li>
+  <li><b>OTA Firmware Switching:</b> Switch between AETHERNET firmware and a custom Game firmware directly from the Web UI without unplugging the device.</li>
+  <li><b>Built-in Mini Games:</b> Upload <code>aethernet_game.bin</code> via File Manager to unlock built-in games (Flappy Bird, Pong, Sudoku, 1916 Shooter) directly on the OLED screen.</li>
 </ul>
 
 <h3>🖥️ Interface & Control</h3>
 <ul>
+  <li><b>4x Physical Control Buttons:</b> Full offline navigation using tactile buttons (UP, DOWN, OK/SELECT, BACK) directly on the OLED menu.</li>
+  <li><b>Web File Manager:</b> Upload custom HTML templates, update firmware (.bin), and monitor real-time Flash storage capacity directly from the browser.</li>
   <li><b>Dark Web Dashboard:</b> Futuristic web interface, mobile-responsive, equipped with a color theme system and live clock sync.</li>
   <li><b>Custom OLED UI:</b> Minimalist 3x5 pixel font rendering showing real-time attack stats, progress bars, and system logs.</li>
-  <li><b>Template Manager:</b> Upload, preview, and set active HTML phishing templates directly from the browser.</li>
 </ul>
 
 <hr>
@@ -59,22 +61,19 @@
 </table>
 <p><i>* I2C Address must be set to <b>0x3C</b>.</i></p>
 
-<h3>2. NRF24L01 - Bluetooth Jammer (Hardware SPI)</h3>
+<h3>2. Physical Navigation Buttons (Tactile Push Buttons)</h3>
 <table border="1" style="border-collapse: collapse; width: 100%; text-align: left; padding: 8px;">
   <tr style="background-color: #f2f2f2;">
-    <th>NRF24L01 Pin</th>
+    <th>Button Function</th>
     <th style="text-align: center;">ESP8266 Pin</th>
     <th>Notes</th>
   </tr>
-  <tr><td>CE</td><td style="text-align: center;"><b>D4 (GPIO 2)</b></td><td>Chip Enable</td></tr>
-  <tr><td>CSN</td><td style="text-align: center;"><b>D0 (GPIO 16)</b></td><td>Chip Select</td></tr>
-  <tr><td>SCK</td><td style="text-align: center;"><b>D5 (GPIO 14)</b></td><td>Hardware SPI CLK</td></tr>
-  <tr><td>MOSI</td><td style="text-align: center;"><b>D7 (GPIO 13)</b></td><td>Hardware SPI MOSI</td></tr>
-  <tr><td>MISO</td><td style="text-align: center;"><b>D6 (GPIO 12)</b></td><td>Hardware SPI MISO</td></tr>
-  <tr><td>VCC</td><td style="text-align: center;"><b>3.3V</b></td><td>DO NOT use 5V</td></tr>
-  <tr><td>GND</td><td style="text-align: center;"><b>GND</b></td><td>Common Ground</td></tr>
+  <tr><td>UP / Menu Up</td><td style="text-align: center;"><b>D5 (GPIO 14)</b></td><td>Connect to GND when pressed</td></tr>
+  <tr><td>DOWN / Menu Down</td><td style="text-align: center;"><b>D6 (GPIO 12)</b></td><td>Connect to GND when pressed</td></tr>
+  <tr><td>OK / SELECT</td><td style="text-align: center;"><b>D7 (GPIO 13)</b></td><td>Connect to GND when pressed</td></tr>
+  <tr><td>BACK / KEMBALI</td><td style="text-align: center;"><b>D3 (GPIO 0)</b></td><td>Connect to GND when pressed</td></tr>
 </table>
-<p><b>⚠️ IMPORTANT:</b> Solder a <b>10uF Capacitor</b> directly between the VCC and GND pins on the NRF24L01 module to prevent voltage drops and crashes during transmission.</p>
+<p><i>* Internal <code>INPUT_PULLUP</code> is enabled. No external resistors required. Just connect the button pins to the respective ESP8266 pins and GND.</i></p>
 
 <hr>
 
@@ -84,7 +83,7 @@
 <ul>
   <li>Make sure you have installed USB Serial Driver (CH340/CP2102) on your PC.</li>
   <li>Open <b>Arduino IDE</b> or <b>ESP Flash Download Tool</b>.</li>
-  <li>Select Board: <i>LOLIN(WEMOS) D1 Mini</i>.</li>
+  <li>Select Board: <i>LOLIN(WEMOS) D1 Mini</i>. Set Flash Size to <b>4MB (FS:2MB OTA:~1019KB)</b>.</li>
   <li>Erase the board flash first (Erase All Flash).</li>
   <li>Load the <b>.bin</b> file.</li>
   <li>Set the offset to <b>0x0</b>.</li>
@@ -97,14 +96,14 @@
   <li>The ESP8266 is still on bootloader mode. Unplug then plug it back in.</li>
   <li>The binary file does not match with your ESP8266 Chip.</li>
   <li>You did not erase the flash before flashing.</li>
-  <li>Hardware wiring issue (e.g., NRF24L01 short circuit blocking boot).</li>
+  <li>Hardware wiring issue (e.g., buttons short-circuiting to GND on boot).</li>
 </ol>
 
 <hr>
 
 <div align="center">
   <h2>💎 Get the Full / Premium Version</h2>
-  <p>The file available in this repository is a <b>Trial Version</b>, strictly limited to <b>10 Minute</b> of usage time for initial demonstration. Once the trial expires, the device is permanently locked.</p>
+  <p>The file available in this repository is a <b>Trial Version</b>, strictly limited to <b>1 Minute</b> of usage time for initial demonstration. Once the trial expires, the device is permanently locked and requires re-flashing.</p>
   <br>
   <a href="https://t.me/+6283141852690">
   <img src="https://img.shields.io/badge/Buy_Now-Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />
