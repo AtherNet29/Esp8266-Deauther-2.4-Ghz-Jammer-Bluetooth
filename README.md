@@ -79,24 +79,32 @@
 <hr>
 
 <h2>📦 How to Flash the Firmware</h2>
+<p>Since you are downloading the pre-compiled <code>.bin</code> file, you do not need the Arduino IDE. Follow these steps using the official ESP Flashing Tool:</p>
 
-<h3>1. Flashing the ESP8266 (Wemos D1 Mini)</h3>
+<h3>1. Preparation</h3>
 <ul>
-  <li>Make sure you have installed USB Serial Driver (CH340/CP2102) on your PC.</li>
-  <li>Open <b>Arduino IDE</b> or <b>ESP Flash Download Tool</b>.</li>
-  <li>Select Board: <i>LOLIN(WEMOS) D1 Mini</i>. Set Flash Size to <b>4MB (FS:2MB OTA:~1019KB)</b>.</li>
-  <li>Erase the board flash first (Erase All Flash).</li>
-  <li>Load the <b>.bin</b> file.</li>
-  <li>Set the offset to <b>0x0</b>.</li>
-  <li>Click Flash and wait for the process to finish.</li>
-  <li><b>ATHERNET SSID will appear shortly.</b></li>
+  <li>Install the USB Serial Driver for your D1 Mini (usually CH340 or CP2102) on your PC.</li>
+  <li>Download and open the <b>ESP8266 Flash Download Tool</b> (from Espressif's official website).</li>
+</ul>
+
+<h3>2. Flashing Process</h3>
+<ul>
+  <li>Connect your ESP8266 D1 Mini to your PC via USB.</li>
+  <li>Open the Flash Download Tool, select <b>Developer Mode</b> -> <b>ESP8266 DownloadTool</b>.</li>
+  <li>Select the correct COM Port (check Device Manager if unsure) and set the Baudrate to <b>115200</b>.</li>
+  <li>Check the first SPI Flashbox, click the <b>...</b> button and load the downloaded <b>AETHERNET.bin</code></b> file. Set the address to <b>0x00000</b>.</li>
+  <li>Set the Flash Size to <b>32Mbit (4MB)</b>.</li>
+  <li>Make sure <b>DoNotChgBin</b> is selected.</li>
+  <li>Click <b>ERASE</b> first to wipe the board completely. Wait for it to finish.</li>
+  <li>Click <b>START</b> to flash the firmware and wait for the green checkmark.</li>
+  <li>Unplug and replug your ESP8266. The <b>ATHERNET SSID</b> will appear shortly.</li>
 </ul>
 
 <h3>❓ What if the SSID does not appear?</h3>
 <ol>
   <li>The ESP8266 is still on bootloader mode. Unplug then plug it back in.</li>
-  <li>The binary file does not match with your ESP8266 Chip.</li>
-  <li>You did not erase the flash before flashing.</li>
+  <li>You did not erase the flash before flashing (must click ERASE first).</li>
+  <li>Wrong COM Port selected or driver not installed properly.</li>
   <li>Hardware wiring issue (e.g., buttons short-circuiting to GND on boot).</li>
 </ol>
 
