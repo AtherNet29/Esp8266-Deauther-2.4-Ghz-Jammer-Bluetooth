@@ -72,6 +72,7 @@
   <tr><td>DOWN / Menu Down</td><td style="text-align: center;"><b>D6 (GPIO 12)</b></td><td>Connect to GND when pressed</td></tr>
   <tr><td>OK / SELECT</td><td style="text-align: center;"><b>D7 (GPIO 13)</b></td><td>Connect to GND when pressed</td></tr>
   <tr><td>BACK / KEMBALI</td><td style="text-align: center;"><b>D3 (GPIO 0)</b></td><td>Connect to GND when pressed</td></tr>
+  <tr><td>START / MAIN GAME</td><td style="text-align: center;"><b>D4 (GPIO 2)</b></td><td>Connect to GND when pressed</td></tr>
 </table>
 <p><i>* Internal <code>INPUT_PULLUP</code> is enabled. No external resistors required. Just connect the button pins to the respective ESP8266 pins and GND.</i></p>
 
@@ -122,7 +123,7 @@
 
 <p><b>Module Wiring Diagram (ESP8266 D1 Mini):</b></p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AtherNet29/Esp8266-Deauther-2.4-Ghz-Jammer-Bluetooth/80170820c605168ec53c6794e7d714323c367130/SKEMA%20ESP8266.png" width="800" alt="Wiring Diagram" />
+  <img src="https://raw.githubusercontent.com/AtherNet29/Esp8266-Deauther-2.4-Ghz-Jammer-Bluetooth/d59d4c38fe027164d3bf796934cf08dfc058e29b/SKEMA%20DIAGRAM.jpg" width="800" alt="Wiring Diagram" />
 </p>
 
 <hr>
